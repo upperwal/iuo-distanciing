@@ -1,0 +1,32 @@
+# This style is an homage to Michal Migurski's High Road demo:
+# https://github.com/migurski/HighRoad
+# It uses stops to set line and outline widths at various zoom levels,
+# and the sort_rank property to arrange bridges, overpasses, and tunnels
+# by depth.
+#
+
+sources:
+    nextzen:
+        type: MVT
+        url: https://tile.nextzen.org/tilezen/vector/v1/512/all/{z}/{x}/{y}.mvt
+        url_params:
+            api_key: NaqqS33fTUmyQcvbuIUCKA
+        tile_size: 512
+        max_zoom: 16
+
+layers:
+    places:
+        data: { source: nextzen }
+        filter: { name: true, not: { kind: [county, state, island] } }
+        draw:
+            text:
+                font:
+                    weight: 100
+                    size: 11px
+                    family: Arial
+                    fill: white
+                    stroke: { color: black, width: 1 }
+        # nix podunk burgs under z15
+        minor-places:
+            filter: { kind: [hamlet, village, town, neighbourhood, suburb, quarter], $zoom: { max: 15 } }
+            visible: false
