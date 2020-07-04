@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/iuo-distancing/precache-manifest.af62eb663cea89a305e926b958760e25.js"
+  "/iuo-distancing/precache-manifest.f4e5abf47c8d00de1af916c13e2ecc15.js"
 );
 
 self.addEventListener('message', (event) => {
